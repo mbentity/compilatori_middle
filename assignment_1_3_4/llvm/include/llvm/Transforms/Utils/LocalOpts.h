@@ -1,12 +1,13 @@
-#ifndef LLVM_TRANSFORMS_LOCALOPTS_H
-#define LLVM_TRANSFORMS_LOCALOPTS_H
-#include "llvm/IR/PassManager.h"
-#include <llvm/IR/Constants.h>
+#ifndef LLVM_TRANSFORMS_UTILS_LOCALOPTS_H
+#define LLVM_TRANSFORMS_UTILS_LOCALOPTS_H
 
-namespace llvm {
-class LocalOpts : public PassInfoMixin<LocalOpts> {
+#include <llvm/IR/PassManager.h>
+
+class LocalOpts final
+    : public llvm::PassInfoMixin<LocalOpts> {
 public:
-PreservedAnalyses run(Function &F, FunctionAnalysisManager &AM);
+  llvm::PreservedAnalyses run(llvm::Module &,
+                              llvm::ModuleAnalysisManager &);
 };
-} // namespace llvm
-#endif // LLVM_TRANSFORMS_LOCALOPTS _H
+
+#endif

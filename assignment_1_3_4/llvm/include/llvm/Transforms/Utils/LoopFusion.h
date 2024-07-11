@@ -1,12 +1,13 @@
-#ifndef LLVM_TRANSFORMS_LOOPFUSION_H
-#define LLVM_TRANSFORMS_LOOPFUSION_H
-#include "llvm/IR/PassManager.h"
-#include "llvm/Analysis/LoopInfo.h"
+#ifndef LLVM_TRANSFORMS_UTILS_LOOPFUSION_H
+#define LLVM_TRANSFORMS_UTILS_LOOPFUSION_H
 
-namespace llvm {
-class LoopFusion : public PassInfoMixin<LoopFusion> {
+#include <llvm/IR/PassManager.h>
+
+class LoopFusion final
+    : public llvm::PassInfoMixin<LoopFusion> {
 public:
-PreservedAnalyses run(Function &F, FunctionAnalysisManager &AM);
+  llvm::PreservedAnalyses run(llvm::Function &,
+                              llvm::FunctionAnalysisManager &);
 };
-} // namespace llvm
-#endif // LLVM_TRANSFORMS_LOOPFUSION _H
+
+#endif
