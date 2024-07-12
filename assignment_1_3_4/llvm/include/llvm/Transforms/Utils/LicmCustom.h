@@ -2,6 +2,7 @@
 #define LLVM_TRANSFORMS_LICMCUSTOM_H
 
 #include <llvm/IR/PassManager.h>
+#include <llvm/IR/Dominators.h>
 
 class LicmCustom final
     : public llvm::PassInfoMixin<LicmCustom> {
